@@ -54,6 +54,7 @@ runflag = 1
 noteArray = []
 noteSum = 0
 currentNote = 0
+arraySize = 10
 
 while runflag:
     # read data from audio input
@@ -73,8 +74,8 @@ while runflag:
     energy = vec_local_energy(buf)
 
     if(energy > 0.005):
-        #keep an array of the last 5 detected notes
-        if(noteArray.__len__() < 5):
+        #keep an array of the last arraySize detected notes
+        if(noteArray.__len__() < arraySize):
             noteArray.append(note)
         else:
             noteArray.pop(0)
